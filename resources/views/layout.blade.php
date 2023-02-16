@@ -8,7 +8,10 @@
 </head>
 <body>
     
+<div>
+    {{ dd($listings) }}
+    Motherfucker
 
-    @yield("content")
+</div>
 </body>
 </html>

@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ListingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Protected routes
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::post('/create-listing', [ListingController::class, 'create']);
+    Route::put('/listings/{id}', [ListingController::class, 'update']);
+    Route::delete('/listings/{id}', [ListingController::class, 'destroy']);
+    Route::post('/logout', [AuthController::class, 'logout']);
+    // Route::get('/listings/{id}', [ListingController::class, 'show']);
 });
+
+// Unprotected routes
+Route::get('/listings', [ListingController::class, 'index']);
+// Route::get('/listings/{id}', [ListingController::class, 'show']);
+// Route::resource('listings', ListingController::class);
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
+
+
+
+

@@ -10,6 +10,10 @@ class Listing extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['category_id', 'currency', 'name', 'slug', 'email', 'description', 'price', 
+    // 'date_online', 'date_offline'
+];
+
     // Relationship To Category
     public function category()
     {

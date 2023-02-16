@@ -21,12 +21,12 @@ class ListingFactory extends Factory
             "slug" => $this->faker->text(),
             "description"=> $this->faker->paragraph(),
             "email"=> $this->faker->email(),
-            "category_id" => $this->faker->numberBetween(1,5),
+            "category_id" => $this->faker->numberBetween(1,4),
             "price" => $this->faker->randomDigit(),
             "currency" => $this->faker->currencyCode(),
-            "mobile" => $this->faker->phoneNumber(),
-            "date_online" => $this->faker->date(),
-            "date_offline" => $this->faker->date(),
+            // "mobile" => $this->faker->phoneNumber(),
+            // "date_online" => $this->faker->date(),
+            // "date_offline" => $this->faker->date(),
         ];
     }
 }

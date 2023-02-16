@@ -21,13 +21,12 @@ return new class extends Migration
             // $table->foreign('category_id')->references('id')->on('categories');
             $table->string("name");
             $table->string("slug");
-            $table->longText("description");
+            $table->longText("description")->nullable();
             $table->string("email");
-            $table->integer("price");
+            $table->decimal("price", 5, 2);
             $table->string("currency");
-            $table->string("mobile");
-            $table->date("date_online");  
-            $table->date("date_offline");  
+            // $table->timestamp("date_online");  
+            // $table->timestamp("date_offline");  
             $table->timestamps();  
         });
     }
