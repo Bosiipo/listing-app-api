@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Category;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -21,12 +20,13 @@ return new class extends Migration
             // $table->foreign('category_id')->references('id')->on('categories');
             $table->string("name");
             $table->string("slug");
-            $table->longText("description")->nullable();
+            $table->longText("description");
             $table->string("email");
             $table->decimal("price", 5, 2);
             $table->string("currency");
-            // $table->timestamp("date_online");  
-            // $table->timestamp("date_offline");  
+            // $table->string("mobile");
+            // $table->date("date_online");  
+            // $table->date("date_offline");  
             $table->timestamps();  
         });
     }
