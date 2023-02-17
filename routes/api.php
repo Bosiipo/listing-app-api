@@ -31,7 +31,7 @@ Route::get('/listings', [ListingController::class, 'index']);
 // Route::resource('listings', ListingController::class);
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
-Route::get('/listings/search/{name}', [ListingController::class, 'search'])
+Route::get('/listings/search/{name}', [ListingController::class, 'search']);
 
 
 
