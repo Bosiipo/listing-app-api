@@ -21,7 +21,7 @@ class ListingFactory extends Factory
             "slug" => $this->faker->text(),
             "description"=> $this->faker->paragraph(),
             "email"=> $this->faker->email(),
-            "category_id" => $this->faker->numberBetween(1,4),
+            "category" => $this->faker->randomElement(['Furniture', 'Electronics', 'Cars', 'Property']),
             "price" => $this->faker->randomDigit(),
             "currency" => $this->faker->currencyCode(),
             // "mobile" => $this->faker->phoneNumber(),

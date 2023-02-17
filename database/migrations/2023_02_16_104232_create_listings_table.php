@@ -15,18 +15,13 @@ return new class extends Migration
     {
         Schema::create('listings', function (Blueprint $table) {
             $table->id();
-            $table->integer('category_id')->unsigned();
-            // $table->foreignIdFor(Category::class);
-            // $table->foreign('category_id')->references('id')->on('categories');
+            $table->enum('category',['Furniture', 'Electronics', 'Cars', 'Property']);
             $table->string("name");
             $table->string("slug");
             $table->longText("description");
             $table->string("email");
             $table->decimal("price", 5, 2);
             $table->string("currency");
-            // $table->string("mobile");
-            // $table->date("date_online");  
-            // $table->date("date_offline");  
             $table->timestamps();  
         });
     }

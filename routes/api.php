@@ -22,15 +22,17 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::put('/listings/{id}', [ListingController::class, 'update']);
     Route::delete('/listings/{id}', [ListingController::class, 'destroy']);
     Route::post('/logout', [AuthController::class, 'logout']);
-    // Route::get('/listings/{id}', [ListingController::class, 'show']);
+    Route::get('/listings/manage', [ListingController::class, 'manage']);
+    Route::get('/listings/{id}', [ListingController::class, 'show']);
 });
 
 // Unprotected routes
 Route::get('/listings', [ListingController::class, 'index']);
-// Route::get('/listings/{id}', [ListingController::class, 'show']);
 // Route::resource('listings', ListingController::class);
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
+Route::get('/listings/search/{name}', [ListingController::class, 'search'])
+
 
 
 
