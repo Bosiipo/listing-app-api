@@ -9,19 +9,18 @@ use Symfony\Contracts\Service\Attribute\Required;
 class ListingController extends Controller
 {
 
-
     public function index() {
         return Listing::latest()->filter(request(['category', 'search']))->paginate(6);
     }
 
-    public function search ($name) {
-        return Listing::where('category', 'like', "%".$name."%")->get();
+    public function search ($title) {
+        return Listing::where('category', 'like', "%".$title."%")->get()->paginate(6);
     }
 
 
     public function create(Request $request) {
         $formFields = $request->validate([
-            "name" => 'required',
+            "title" => 'required',
             "slug" => 'required',
             "category" => 'required',
             "currency" => 'required',
@@ -53,7 +52,7 @@ class ListingController extends Controller
         
         $formFields = $request->validate([
             "email" => ['required', 'email'],
-            "name" => 'required',
+            "title" => 'required',
             "slug" => 'required',
             "category" => 'required',
             "currency" => 'required',
